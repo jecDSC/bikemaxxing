@@ -1,3 +1,8 @@
+:root {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+}
+
 html,
 body {
   margin: 0;
@@ -26,6 +31,55 @@ body {
   pointer-events: none;
 }
 
-circle {
+#map circle {
   pointer-events: auto;
+  fill: var(--color);
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+div.legend {
+  display: flex;
+  margin-block: 5px;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+div.legend-left {
+  flex: 1;
+  text-align: left;
+  color: white;
+  width: 200px;
+  background-color: var(--color-departures);
+  padding-left: 175px;
+}
+
+div.legend-mid {
+  flex: 1;
+  text-align: center;
+  color: white;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  background-color: var(--color);
+  width: 200px;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+div.legend-right {
+  flex: 1;
+  text-align: right;
+  color: white;
+  width: 200px;
+  background-color: var(--color-arrivals);
+  padding-right: 175px;
 }
