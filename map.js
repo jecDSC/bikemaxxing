@@ -57,8 +57,12 @@ function computeStationTraffic(stations, trips) {
 map.on("load", async () => {
   map.addSource("boston_route", {
     type: "geojson",
-    // data: "https://raw.githubusercontent.com/cambridgegis/cambridgegis_data/main/Recreation/Bike_Facilities/RECREATION_BikeFacilities.geojson",
     data: "https://bostonopendata-boston.opendata.arcgis.com/datasets/boston::existing-bike-network-2022.geojson",
+  });
+
+  map.addSource("cambridge_route", {
+    type: "geojson",
+    data: "https://raw.githubusercontent.com/cambridgegis/cambridgegis_data/main/Recreation/Bike_Facilities/RECREATION_BikeFacilities.geojson",
   });
 
   map.addLayer({
@@ -69,6 +73,17 @@ map.on("load", async () => {
       "line-color": "#32D400", // A bright green using hex code
       "line-width": 5, // Thicker lines
       "line-opacity": 0.6, // Slightly less transparent
+    },
+  });
+
+  map.addLayer({
+    id: "bike-lanes2",
+    type: "line",
+    source: "cambridge_route",
+    paint: {
+      "line-color": "#32D400",
+      "line-width": 5,
+      "line-opacity": 0.6,
     },
   });
 
