@@ -8,3 +8,24 @@ body {
   margin: auto;
   padding: 1em;
 }
+
+h2#description {
+  margin-top: 0px;
+}
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+  margin-left: auto;
+}
+
+time {
+  display: block;
+  margin-left: auto;
+}
+
+em {
+  display: block;
+  margin-left: auto;
+}

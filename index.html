@@ -5,13 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bikewatching</title>
     <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="map.css" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <script src="map.js" type="module"></script>
+
+    <!-- Mapbox GL JS CSS -->
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h1>Bikemaxxing</h1>
-    <h2>
+    <h2 id="description">
       An interactive visualization of bike traffic in Boston at different times
       of the day.
     </h2>
+
+    <header>
+      <label
+        >Filter by time:
+        <input id="time-slider" type="range" min="-1" max="1440" />
+        <time id="selected-time"></time>
+        <em id="any-time">(any time)</em>
+      </label>
+    </header>
+
+    <div id="map"><svg></svg></div>
   </body>
 </html>
